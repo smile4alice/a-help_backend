@@ -1,0 +1,22 @@
+from datetime import datetime
+
+from marshmallow import validate
+
+from ahelp.models import OurPartnersModel
+from ahelp.extensions import ma, db
+
+
+class OurPartnersSchema(ma.SQLAlchemyAutoSchema):
+    id: int = ma.Integer(dump_only=True)
+    photo_path: str = ma.String(required=True, validate=validate.Regexp(r"^.*\.(png|jpg|jpeg|gif|bmp)$", error="Invalid image format"))
+    name: str = ma.String(required=True, validate=validate.Length(min=3, max=100))
+    name_en: str = ma.String(required=True, validate=validate.Length(min=3, max=100))
+    description: str = ma.String(required=True, validate=validate.Length(min=10, max=600))
+    description_en: str = ma.String(required=True, validate=validate.Length(min=10, max=600))
+    creation_date: datetime = ma.DateTime(dump_only=True)
+    modification_date: datetime = ma.DateTime(dump_only=True)
+
+    class Meta:
+        model = OurPartnersModel
+        sqla_session = db.session
+        load_instance = True

@@ -1,0 +1,28 @@
+marshmallow>=3
+flask~=2.2.2
+flask-restful~=0.3.9
+flask-migrate~=4.0.4
+flask-login~=0.6.2
+flask-sqlalchemy~=3.0.3
+flask-marshmallow~=0.14.0
+flask-jwt-extended~=4.4.4
+flask-babelex~=0.9.4
+psycopg2-binary~=2.9.5
+marshmallow-sqlalchemy~=0.28.1
+python-dotenv~=0.21.1
+passlib~=1.7.4
+apispec[yaml]~=6.0.2
+apispec-webframeworks~=0.5.2
+tox~=4.4.4
+gunicorn~=20.1.0
+flask_mail~=0.9.1
+paypalrestsdk~=1.13.1
+Faker~=17.0.0
+tablib[all] 
+flask_cors~=3.0.10
+#Fondy integration (Scheme B!) 
+# https://docs.fondy.eu/ru/docs/page/1/#chapter-1-2
+# https://docs.fondy.eu/ru/docs/page/python-sdk/
+cloudipsp~=1.0.4
+# Admin panel from local distribution ¯\_(ツ)_/¯
+./custom-dist/Flask_Admin-1.6.0f-py3-none-any.whl

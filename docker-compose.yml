@@ -1,0 +1,20 @@
+# WARNING: Adopt for PRODUCTION if needed
+version: '3'
+
+services:
+  web:
+    image: ahelp-api
+    build: .
+    command: gunicorn -b 0.0.0.0:5000 ahelp-api.wsgi:app
+    env_file:
+      - ./.flaskenv
+    environment:
+      - DATABASE_URI=$DATABASE_URI
+    volumes:
+      - ./ahelp:/app/ahelp
+    ports:
+      - "5000:5000"
+  migrations:
+    extends:
+        service: web
+    command: python manage.py db upgrade

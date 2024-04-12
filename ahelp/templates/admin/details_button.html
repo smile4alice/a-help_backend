@@ -1,0 +1,19 @@
+{% extends 'admin/model/list.html' %}
+
+{% block list_header %}
+    <div class="text-dark text-left font-weight-bold my-details-button" role="alert">
+        <button class="btn btn-dark " data-toggle="collapse" href="#description" role="button" aria-expanded="false" aria-controls="description">
+            Деталі
+        </button>
+        <div id="description" class="collapse my-details-window">
+            {{ description|safe }}
+        </div>
+    </div>
+    {{ super() }}
+    <style>
+        #description {
+            padding: 10px;
+            transition: max-height ease-out;
+        }
+    </style>
+{% endblock %}

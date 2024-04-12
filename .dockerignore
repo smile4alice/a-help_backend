@@ -1,0 +1,8 @@
+.flaskenv
+.testenv
+Dockerfile
+docker-compose.yml
+docker-compose-dev.yml
+tox.ini
+test_login.http
+.gitignore

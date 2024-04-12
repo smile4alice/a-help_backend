@@ -1,0 +1,30 @@
+# WARNING: this file is not suitable for production, it is used for development purposes
+version: '3'
+
+services:
+  postgres-db:
+    image: postgres
+    container_name: local_pgdb
+    restart: always
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_DB: team05
+      POSTGRES_USER: local
+      POSTGRES_PASSWORD: dev%lop3R
+    volumes:
+      - local_pgdata:/var/lib/postgresql/data
+  pgadmin:
+    image: dpage/pgadmin4
+    container_name: pgadmin4_container
+    restart: always
+    ports:
+      - "5050:80"
+    environment:
+      PGADMIN_DEFAULT_EMAIL: student@it-generation.gov.ua
+      PGADMIN_DEFAULT_PASSWORD: PythonFor3ver#1
+    volumes:
+      - pgadmin-data:/var/lib/pgadmin
+volumes:
+  local_pgdata:
+  pgadmin-data:
